@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAIA2 - Магический Кофе</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Контейнер для фоновых картинок -->
+    <div class="background-container">
+        <img src="fon2.jpg" class="bg-image bg3">
+        <img src="fon1.jpg" class="bg-image bg2">
+        <img src="fon.jpg" class="bg-image bg1">
+    </div>
+
+    <!-- Слой для эффекта "затмевания" -->
+    <div class="overlay"></div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="logo2.png" alt="GAIA"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="menu.html">Меню</a></li>
+                <li class="burger-menu" onclick="toggleMenu()">Наши услуги ✨
+                    <ul class="dropdown-menu">
+                        <li><a href="events.html">Мероприятия</a></li>
+                        <li><a href="shop.html">Лавка товаров</a></li>
+                        <li><a href="fortune.html">Гадания</a></li>
+                        <li><a href="booking.html">Бронирование залов</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h1 class="magic">
+                Магическая кофейня GAIA - 
+                волшебство вкуса и предсказаний!
+            </h1>
+            <p>Магическая кофейня GAIA – место, где уют сочетается с волшебством!</p>
+            <button class="magic-button">✨ Открыть меню ✨</button>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
