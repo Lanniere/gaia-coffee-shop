@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAIA2 - Магический Кофе</title>
+    <link rel="stylesheet" href="main2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&family=Uncial+Antiqua&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Контейнер для фоновых картинок -->
+    <div class="background-container">
+        <img src="img/fon.jpg" class="bg-image bg3">
+        <img src="img/fon1.jpg" class="bg-image bg2">
+        <img src="img/fon2.jpg" class="bg-image bg1">
+    </div>
+
+    <!-- Слой для эффекта "затмевания" -->
+    <div class="overlay"></div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="img/logo2.png" alt="Logo_GAIA"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="menu.html">Меню</a></li>
+                <li class="burger-menu" onclick="toggleMenu()">Наши услуги ✨
+                    <ul class="dropdown-menu">
+                        <li><a href="events.html">Мероприятия</a></li>
+                        <li><a href="shop.html">Лавка товаров</a></li>
+                        <li><a href="fortune.html">Гадания</a></li>
+                        <li><a href="booking.html">Бронирование залов</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h1 class="welcome-magic">
+                Магическая кофейня GAIA - 
+                волшебство вкуса и предсказаний!
+            </h1>
+            <h2>Магическая кофейня GAIA – место, где уют сочетается с волшебством!</h2>
+            <button class="magic-button">✨ Открыть меню ✨</button>
+        </section>
+
+        <section class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="about-welcome">GAIA – кофейня, вдохновлённая богиней Земли</h2>
+                    <h3>Добро пожаловать в GAIA – кофейню, где каждая чашка напитка становится маленьким ритуалом.</h3>
+                    <p>GAIA — это место, где магия природы сочетается с уютом. Вдохновлённые древнегреческой богиней Гайей, мы создали пространство тепла, гармонии и таинства.</p>
+                    <p>Как Гайя питала жизнь, так и мы наполняем день ароматным кофе, уютом и волшебством гаданий.</p>
+                </div>
+                <div class="about-video">
+                    <video autoplay controls>
+                        <source src="video/hi1.mp4" type="video/mp4">приветственное видео
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages-section">
+            <h2>Почему GAIA – это больше, чем просто кофейня?</h2>
+            <div class="advantages-image-container">
+                <img src="img/advantages.jpg" alt="фоновое фото преимуществ">
+                <div class="advantages-list">
+                    <div class="advantage-item">
+                        <span class="advantage-number">1</span>
+                        <p>Уникальная атмосфера магии и уюта</p>
+                    </div>
+                    <div class="advantage-item">
+                        <span class="advantage-number">2</span>
+                        <p>Пространство для встреч, обучения и ритуалов</p>
+                    </div>
+                    <div class="advantage-item">
+                        <span class="advantage-number">3</span>
+                        <p>Таро-консультации и предсказания судьбы</p>
+                    </div>
+                    <div class="advantage-item">
+                        <span class="advantage-number">4</span>
+                        <p>Магический магазин с уникальными товарами</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <h2>Окунитесь в атмосферу GAIA</h2>
+            <div class="gallery-wrapper">
+                <button class="gallery-btn prev">◀</button>
+                <div class="gallery-container">
+                    <div class="gallery-track">
+                        <img src="img/gallery1.jpg" alt="фото для галереи">
+                        <img src="img/gallery2.jpg" alt="фото для галереи">
+                        <img src="img/gallery3.jpg" alt="фото для галереи">
+                        <img src="img/gallery4.jpg" alt="фото для галереи">
+                    </div>
+                </div>
+                <button class="gallery-btn next">▶</button>
+            </div>
+        </section>
+
+        <section class="rental-section">
+            <h2>🔮 Аренда зала в GAIA</h2>
+            <p>>Идеальное место для мистических встреч, лекций и тематических вечеров.</p>
+            <div class="rental-container">
+                <div class="rental-card">
+                    <img src="img/hall2.jpg" alt="Зал для встреч">
+                    <h3>Магический зал</h3>
+                    <p>Уютное пространство для духовных встреч, медитаций и мастер-классов.</p>
+                    <button class="magic-booking">Забронировать</button>
+                </div>
+                <div class="rental-card">
+                    <img src="img/hall.jpg" alt="Зал для гаданий">
+                    <h3>Гадательный кабинет</h3>
+                    <p>Идеальное место для частных сеансов гадания и консультаций.</p>
+                    <button class="magic-booking">Забронировать</button>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

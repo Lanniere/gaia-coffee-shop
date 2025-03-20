@@ -4,7 +4,6 @@ body {
     font-family: 'Arial', sans-serif;
     color: #000000;
     background: linear-gradient(180deg, #FCEEE6, #F9DCC6, #E8B5A2);
- /* Цветной градиентный фон */
     position: relative;
     overflow-x: hidden;
     min-height: 100vh; /* Минимальная высота страницы */
@@ -34,19 +33,20 @@ body {
     transform: rotate(-34deg);
     background-color: white; /* Или цвет фона */
     mix-blend-mode: normal;
+}
 
- }
 .bg1 { 
     position: absolute;
     top: 300px;
     left: 300px;
     transform: rotate(28deg);
-    width: 220;
+    width: 220px;
     border-radius: 5%;
     background-color: white; /* Или цвет фона */
     mix-blend-mode: normal;
     box-shadow: 0 0 30px 5px rgba(243, 210, 149, 0.7);
- }
+}
+
 .bg3 { 
     position: absolute;
     top: 500px;
@@ -55,7 +55,7 @@ body {
     width: 220px;
     border-radius: 5%;
     mix-blend-mode: multiply;
- }
+}
 
 /* Слой для эффекта "затмевания" */
 .overlay {
@@ -81,11 +81,9 @@ header {
     z-index: 1000; /* Шапка выше фоновых картинок и слоя "затмевания" */
 }
 
-/* Остальные стили для шапки (оставляем без изменений) */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    place-items: center;
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
@@ -94,6 +92,8 @@ header {
 
 .logo img {
     height: 60px;
+    display: block;
+    margin: 0 auto;
 }
 
 .nav-links {
@@ -161,24 +161,23 @@ header {
     color: #ffdd57;
 }
 
-/* Центрирование секции */
 main {
-    display: block; /* Убираем flex-контейнер */
-    height: auto; /* Убираем фиксированную высоту */
-    padding-top: 100px; /* Отступ сверху, чтобы контент не накладывался на шапку */
+    display: block;
+    padding-top: 100px;
+    height: auto; 
 }
 
-/* Центрируем секцию по вертикали и горизонтали */
+/*Центрируем секцию по вертикали и горизонтали*/
 .welcome-section  {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Высота секции на весь экран */
+    height: 100vh; 
     color: white;
     padding: 50px;
-    position: relative; /* Позволяет позиционировать дочерние элементы */
-    z-index: 2; /* Чтобы текст был поверх фона */
+    position: relative; 
+    z-index: 2; 
 }
 
 .magic {
@@ -188,7 +187,7 @@ main {
     text-align: center;
 }
 
-/* Стили для кнопки */
+/*Стили для кнопки*/
 .magic-button {
     background: #5a3e6b;
     color: white;
@@ -198,13 +197,68 @@ main {
     cursor: pointer;
     border-radius: 10px;
     transition: 0.3s;
-    margin-top: 20px; /* Отступ сверху */
+    margin-top: 20px; 
 }
 
 .magic-button:hover {
     background: #ffdd57;
     color: black;
     box-shadow: 0 0 15px rgba(255, 221, 87, 0.8);
+}
+
+.about-section {
+    padding: 50px 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.about-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.about-video {
+    flex: 1;
+    max-width: 50%;
+}
+
+.about-video video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-text {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .about-video {
+        max-width: 100%;
+    }
 }
 
 /* Стили для контейнера с изображением и текстом */
@@ -258,4 +312,63 @@ main {
     height: 50px; /* Высота линии */
     background-color: white; /* Цвет линии */
     margin: 0 20px; /* Отступы вокруг линии */
+}
+
+.gallery {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.gallery-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.gallery-container {
+    width: 80%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-track img {
+    width: 300px; /* Размер картинок */
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.gallery-track img:hover {
+    transform: scale(1.05);
+}
+
+.gallery-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.gallery-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+.welcome-magic {
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: center;
+    color: #6b665d; /* Мягкий золотистый */
 }
