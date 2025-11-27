@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@font-face {
+	font-family: "Advent Pro";
+	src: url("/fonts/advent-pro/AdventPro-Regular.woff2") format("woff2");
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "Advent Pro";
+	src: url("/fonts/advent-pro/AdventPro-SemiBold.woff2") format("woff2");
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: "Advent Pro";
+	src: url("/fonts/advent-pro/AdventPro-Bold.woff2") format("woff2");
+	font-weight: 700;
+}
+
+body {
+	font-family: var(--font-sans);
+}
+
+:root {
+	--font-sans: "Advent Pro", "Roboto", ui-sans-serif, system-ui, sans-serif;
+	--ui-primary: #f1b17a;
+	--ui-primary-foreground: #1f1a17;
+	--ui-gray: #2b2623;
+	--ui-container: 1150px;
+}
