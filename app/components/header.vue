@@ -17,25 +17,28 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
 		<section class="bg-[#F5EFEA] text-[#222222]">
 			<UContainer class="flex flex-wrap items-center justify-between gap-4 py-[22px] text-2xl font-medium">
 				<div class="flex items-center gap-[58px]">
-					<span class="flex items-center gap-2">
-						<UIcon name="i-lucide-briefcase" class="text-base" />
+					<span class="flex items-center gap-4">
+						<UIcon name="i-custom-brief" class="w-5 h-5" />
 						Ежедневно: 9:00 – 21:00
 					</span>
-					<span class="flex items-center gap-2">
-						<UIcon name="i-lucide-phone" class="text-base" />
+					<span class="flex items-center gap-4">
+						<UIcon name="i-custom-phone" class="w-5 h-5" />
 						+7 (982) 512‑00‑11
 					</span>
 				</div>
 
-				<Logo class="h-8 w-auto" />
+				<Logo class="h-9 w-auto" />
 
-				<div class="flex items-center gap-4">
+				<div class="flex items-center gap-7">
 					<p>Ищите нас в Whatsapp и Telegram!</p>
-					<UButton variant="link" class="text-base" aria-label="Открыть Telegram">
-						<UIcon name="i-simple-icons-telegram" class="text-xl" />
-					</UButton>
-					<UButton variant="link" class="text-base" aria-label="Открыть Whatsapp">
-					<UIcon name="i-simple-icons-whatsapp" class="text-xl" />						</UButton>
+					<div class="flex items-center gap-1">
+						<UButton variant="link" class="text-base" aria-label="Открыть Telegram">
+							<UIcon name="i-custom-tg" class="w-6 h-6" />
+						</UButton>
+						<UButton variant="link" class="text-base" aria-label="Открыть Whatsapp">
+							<UIcon name="i-custom-watsap" class="w-6 h-6" />						
+						</UButton>
+					</div>
 				</div>
 			</UContainer>
 		</section>
