@@ -13,16 +13,18 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
 </script>
 
 <template>
-	<header>
+	<header class="sticky top-0">
 		<section class="bg-[#F5EFEA] text-[#222222]">
-			<UContainer class="flex flex-wrap items-center justify-between gap-4 py-[22px] text-2xl font-medium">
+			<UContainer
+				class="flex flex-wrap items-center justify-between gap-4 py-[22px] text-2xl font-medium"
+			>
 				<div class="flex items-center gap-[58px]">
 					<span class="flex items-center gap-4">
-						<UIcon name="i-custom-brief" class="w-5 h-5" />
+						<UIcon name="i-custom-brief" class="h-5 w-5" />
 						Ежедневно: 9:00 – 21:00
 					</span>
 					<span class="flex items-center gap-4">
-						<UIcon name="i-custom-phone" class="w-5 h-5" />
+						<UIcon name="i-custom-phone" class="h-5 w-5" />
 						+7 (982) 512‑00‑11
 					</span>
 				</div>
@@ -31,12 +33,12 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
 
 				<div class="flex items-center gap-7">
 					<p>Ищите нас в Whatsapp и Telegram!</p>
-					<div class="flex items-center gap-1">
+					<div class="flex items-center">
 						<UButton variant="link" class="text-base" aria-label="Открыть Telegram">
-							<UIcon name="i-custom-tg" class="w-6 h-6" />
+							<UIcon name="i-custom-tg" class="h-6 w-6" />
 						</UButton>
 						<UButton variant="link" class="text-base" aria-label="Открыть Whatsapp">
-							<UIcon name="i-custom-watsap" class="w-6 h-6" />						
+							<UIcon name="i-custom-watsap" class="h-6 w-6" />
 						</UButton>
 					</div>
 				</div>
@@ -44,23 +46,30 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
 		</section>
 	</header>
 
-	<UHeader class="bg-[#222222] text-[#F5EFEA]">
-		<template #left>
+	<UHeader class="top-20 bg-[#222222]">
+		<!-- <template #left>
 			<UNavigationMenu
 				:items="navigationItems"
-				class="text-2xl font-semibold"
-				:ui="{ link: 'text-2xl' }"
+				class="text-2xl"
+				:ui="{ link: 'text-2xl text-[#F5EFEA] p-0 font-normal', list: 'gap-[108px]' }"
 			/>
-		</template>
+		</template> -->
 
 		<template #right>
 			<UButton
 				variant="ghost"
 				color="primary"
-				class="text-2xl underline decoration-2 underline-offset-4"
+				class="text-2xl text-[#F5EFEA] underline decoration-2 underline-offset-4"
 			>
 				Забронировать зал
 			</UButton>
+		</template>
+		<template #default>
+			<UNavigationMenu
+				:items="navigationItems"
+				:ui="{ link: 'text-2xl text-[#F5EFEA] p-0 font-normal', 
+				 list: 'gap-[108px]' }"
+			/>
 		</template>
 	</UHeader>
 </template>

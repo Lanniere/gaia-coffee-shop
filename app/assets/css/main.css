@@ -9,6 +9,12 @@
 
 @font-face {
 	font-family: "Advent Pro";
+	src: url("/fonts/advent-pro/AdventPro-Medium.woff2") format("woff2");
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "Advent Pro";
 	src: url("/fonts/advent-pro/AdventPro-SemiBold.woff2") format("woff2");
 	font-weight: 600;
 }
