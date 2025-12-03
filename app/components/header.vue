@@ -13,17 +13,17 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
 </script>
 
 <template>
-	<header class="sticky top-0">
+	<header class="sticky top-0 z-50">
 		<section class="bg-[#F5EFEA] text-[#222222]">
 			<UContainer
 				class="flex flex-wrap items-center justify-between gap-4 py-[22px] text-2xl font-medium"
 			>
 				<div class="flex items-center gap-[58px]">
-					<span class="flex items-center gap-4">
+					<span class="flex items-center gap-4 px-2.5">
 						<UIcon name="i-custom-brief" class="h-5 w-5" />
 						Ежедневно: 9:00 – 21:00
 					</span>
-					<span class="flex items-center gap-4">
+					<span class="flex items-center gap-4 px-2.5">
 						<UIcon name="i-custom-phone" class="h-5 w-5" />
 						+7 (982) 512‑00‑11
 					</span>
@@ -46,7 +46,7 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
 		</section>
 	</header>
 
-	<UHeader class="top-20 bg-[#222222]">
+	<UHeader class="top-20 bg-[#222222]" :ui="{ root: 'border-none', left: 'hidden' }">
 		<!-- <template #left>
 			<UNavigationMenu
 				:items="navigationItems"
@@ -67,8 +67,7 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
 		<template #default>
 			<UNavigationMenu
 				:items="navigationItems"
-				:ui="{ link: 'text-2xl text-[#F5EFEA] p-0 font-normal', 
-				 list: 'gap-[108px]' }"
+				:ui="{ link: 'text-2xl text-[#F5EFEA] font-normal', list: 'gap-[108px]' }"
 			/>
 		</template>
 	</UHeader>
