@@ -3,7 +3,7 @@
 <template>
 	<section class="great-block flex justify-center-safe">
 		<div class="cropped">
-			<img src="assets/images/tarocard.png" />
+			<img src="~/assets/images/tarocard.png" alt="Таро-карта Gaia" />
 		</div>
 		<div class="gradient" />
 		<div class="absolute top-[15%] text-center">
