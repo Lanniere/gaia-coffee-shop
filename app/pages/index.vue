@@ -6,5 +6,6 @@
 		<about-block />
 		<menu-block />
 		<why-block />
+		<hall-block />
 	</UPage>
 </template>
