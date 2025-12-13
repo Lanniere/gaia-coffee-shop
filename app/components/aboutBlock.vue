@@ -11,7 +11,7 @@
 						>
 							КОФЕЙНЯ, ВДОХНОВЛЕННАЯ<br />ДРЕВНЕЙ БОГИНЕЙ ЗЕМЛИ
 						</h2>
-						<img src="~/assets/images/branch.svg" alt="" class="self-center" />
+						<img src="/images/branch.svg" alt="" class="h-10 w-auto self-center sm:h-12 lg:h-14" />
 					</div>
 
 					<div class="space-y-6 text-base leading-relaxed sm:text-lg lg:text-2xl">
@@ -29,7 +29,7 @@
 
 				<div class="image-content relative flex justify-center lg:justify-end">
 					<img
-						src="~/assets/images/aboutComposition.png"
+						src="/images/aboutComposition.png"
 						alt="Древнегреческая богиня Гайя - вдохновение кофейни GAIA"
 						class="h-auto w-full max-w-[450px] sm:max-w-[550px] lg:max-w-[750px]"
 						loading="lazy"

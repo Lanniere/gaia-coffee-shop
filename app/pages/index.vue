@@ -4,5 +4,6 @@
 	<UPage class="p-0">
 		<great-block />
 		<about-block />
+		<menu-block />
 	</UPage>
 </template>
