@@ -5,5 +5,6 @@
 		<great-block />
 		<about-block />
 		<menu-block />
+		<why-block />
 	</UPage>
 </template>

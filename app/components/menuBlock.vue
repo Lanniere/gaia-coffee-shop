@@ -51,11 +51,7 @@ function downloadMenu() {
 							class="flex transition-transform duration-500 ease-in-out"
 							:style="{ transform: `translateX(-${currentSlide * 100}%)` }"
 						>
-							<div
-								v-for="(page, index) in menuPages"
-								:key="index"
-								class="relative w-full flex-shrink-0"
-							>
+							<div v-for="(page, index) in menuPages" :key="index" class="relative w-full shrink-0">
 								<img :src="page" :alt="`Страница меню ${index + 1}`" class="h-auto w-full" />
 							</div>
 						</div>
