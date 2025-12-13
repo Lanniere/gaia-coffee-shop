@@ -41,14 +41,15 @@ export default defineNuxtConfig({
 
 	ui: {
 		fonts: false,
+		colorMode: false,
 	},
 
 	icon: {
-    customCollections: [
-      {
-        prefix: "custom",
-        dir: "app/assets/icons",
-      },
-    ],
-  },
+		customCollections: [
+			{
+				prefix: "custom",
+				dir: "app/assets/icons",
+			},
+		],
+	},
 })
