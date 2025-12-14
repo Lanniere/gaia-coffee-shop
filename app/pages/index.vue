@@ -8,5 +8,6 @@
 		<why-block />
 		<hall-block />
 		<reviews-block />
+		<contact-block />
 	</UPage>
 </template>
