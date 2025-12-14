@@ -12,6 +12,17 @@ interface HallInfo {
 	description: string
 }
 
+interface BookingFormData {
+	selectedDate: Date | null
+	selectedTimeStart: number | null
+	selectedTimeEnd: number | null
+	fullName: string
+	email: string
+	phone: string
+	comment: string
+	agreed: boolean
+}
+
 const halls: HallInfo[] = [
 	{
 		id: "small",
@@ -47,8 +58,9 @@ function goBack() {
 	currentStep.value = 1
 }
 
-function submitForm() {
+function submitForm(formData: BookingFormData) {
 	// TODO: отправка на сервер
+	console.log("Booking submitted:", { hall: selectedHall.value, ...formData })
 	currentStep.value = 3
 }
 
@@ -84,5 +96,8 @@ function goHome() {
 			<!-- Step 3: Confirmation -->
 			<BookingConfirmation v-else-if="currentStep === 3" @home="goHome" />
 		</UContainer>
+
+		<!-- Pre-footer -->
+		<PreFooter :show-image="false" />
 	</main>
 </template>

@@ -68,6 +68,7 @@ const hallCards: HallCard[] = [
 							</p>
 						</div>
 						<UButton
+							to="/booking"
 							class="mt-4 w-full justify-center rounded-full bg-[#677256] px-8 py-4 text-[24px] font-semibold text-[#ECE8D9] shadow-[0_6px_18px_rgba(75,58,40,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_10px_22px_rgba(75,58,40,0.4)] sm:w-auto sm:justify-start sm:self-start"
 							:class="card.reverse ? 'md:ml-auto md:self-end lg:ml-auto lg:self-end' : ''"
 							size="lg"
