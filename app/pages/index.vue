@@ -7,5 +7,6 @@
 		<menu-block />
 		<why-block />
 		<hall-block />
+		<reviews-block />
 	</UPage>
 </template>
