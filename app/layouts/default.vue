@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-	<UApp>
+	<UApp class="bg-[#F5EFEA]">
 		<Header />
 		<UMain>
 			<slot />
