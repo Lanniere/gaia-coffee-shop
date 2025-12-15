@@ -1,31 +1,29 @@
 <script setup lang="ts">
-import photo1 from "~/assets/images/why/gaiaPhoto1.png"
-import photo2 from "~/assets/images/why/gaiaPhoto2.png"
-import photo3 from "~/assets/images/why/gaiaPhoto3.png"
-import photo4 from "~/assets/images/why/gaiaPhoto4.png"
-import photo5 from "~/assets/images/why/gaiaPhoto5.png"
+const img = useImage()
 
-import flower1 from "~/assets/images/why/flowers1.png"
-import flower2 from "~/assets/images/why/flowers2.png"
-import flower3 from "~/assets/images/why/flowers3.png"
-
-const photos = [photo1, photo2, photo3, photo4, photo5]
+const photos = [
+	"/images/why/gaiaPhoto1.png",
+	"/images/why/gaiaPhoto2.png",
+	"/images/why/gaiaPhoto3.png",
+	"/images/why/gaiaPhoto4.png",
+	"/images/why/gaiaPhoto5.png",
+]
 
 const benefits = [
 	{
 		number: "01",
 		title: "Уникальная атмосфера магии и уюта",
-		bg: flower1,
+		bg: img("/images/why/flowers1.png", { format: "webp", quality: 80 }),
 	},
 	{
 		number: "02",
 		title: "Пространство для встреч, обучения и ритуалов",
-		bg: flower2,
+		bg: img("/images/why/flowers2.png", { format: "webp", quality: 80 }),
 	},
 	{
 		number: "03",
 		title: "Магический магазин с уникальными товарами",
-		bg: flower3,
+		bg: img("/images/why/flowers3.png", { format: "webp", quality: 80 }),
 	},
 ]
 </script>
@@ -52,11 +50,12 @@ const benefits = [
 						index === photos.length - 1 ? '-mr-10 sm:-mr-14 lg:-mr-16' : '',
 					]"
 				>
-					<img
+					<NuxtImg
 						:src="photo"
 						alt="GAIA пространство"
 						class="h-full w-full rounded-[50px] object-cover"
 						loading="lazy"
+						sizes="430px"
 					/>
 				</div>
 			</div>

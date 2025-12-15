@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import leavesImg from "~/assets/images/branch2.png"
-
 interface Props {
 	price: number
 }
@@ -21,11 +19,13 @@ defineProps<Props>()
 		</div>
 
 		<!-- Decorative leaves -->
-		<img
-			:src="leavesImg"
+		<NuxtImg
+			src="/images/branch2.png"
 			alt=""
 			class="pointer-events-none absolute -right-4 -bottom-4 w-32 md:-right-8 md:-bottom-8 md:w-44"
 			aria-hidden="true"
+			loading="lazy"
+			sizes="176px"
 		/>
 	</div>
 </template>

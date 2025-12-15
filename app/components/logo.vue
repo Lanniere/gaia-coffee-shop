@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-	<img src="~/assets/images/logo.png" alt="Logo" />
+	<NuxtImg src="/images/logo.png" alt="Logo" sizes="150px" />
 </template>

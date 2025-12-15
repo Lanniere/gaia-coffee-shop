@@ -38,7 +38,13 @@ function downloadMenu() {
 
 		<!-- Декоративная композиция веточек позади меню -->
 		<div class="pointer-events-none absolute inset-x-0 flex justify-center">
-			<img src="/images/menuCompositionBranches.png" alt="" class="select-none" loading="lazy" />
+			<NuxtImg
+				src="/images/menuCompositionBranches.png"
+				alt=""
+				class="select-none"
+				loading="lazy"
+				sizes="sm:100vw lg:1200px"
+			/>
 		</div>
 
 		<UContainer>
@@ -52,12 +58,18 @@ function downloadMenu() {
 							:style="{ transform: `translateX(-${currentSlide * 100}%)` }"
 						>
 							<div v-for="(page, index) in menuPages" :key="index" class="relative w-full shrink-0">
-								<img :src="page" :alt="`Страница меню ${index + 1}`" class="h-auto w-full" />
+								<NuxtImg
+									:src="page"
+									:alt="`Страница меню ${index + 1}`"
+									class="h-auto w-full"
+									sizes="sm:100vw md:768px lg:896px"
+									:loading="index === 0 ? 'eager' : 'lazy'"
+								/>
 							</div>
 						</div>
 						<!-- Декоративный листочек -->
 						<div class="absolute right-0 bottom-0">
-							<img src="/images/menuLeaf.png" alt="" class="" loading="lazy" />
+							<NuxtImg src="/images/menuLeaf.png" alt="" loading="lazy" sizes="100px" />
 						</div>
 					</div>
 

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import bigHall from "~/assets/images/hall/bigHall.png"
-import smallHall from "~/assets/images/hall/smallHall.png"
-
 interface HallCard {
 	id: string
 	title: string
@@ -19,7 +16,7 @@ const hallCards: HallCard[] = [
 		paragraphs: [
 			"Здесь можно провести вечер гаданий при свечах, обсудить тайны Вселенной за чашкой ароматного чая или просто насладиться неспешным временем в компании единомышленников.",
 		],
-		image: smallHall,
+		image: "/images/hall/smallHall.png",
 	},
 	{
 		id: "big-hall",
@@ -28,7 +25,7 @@ const hallCards: HallCard[] = [
 		paragraphs: [
 			"Здесь легко говорить, слушать и создавать — будто под  покровительством тихой магии. Идеально для бизнес-встреч, презентаций и  мастер-классов, где ценится не только содержание, но и настроение.",
 		],
-		image: bigHall,
+		image: "/images/hall/bigHall.png",
 		reverse: true,
 	},
 ]
@@ -80,12 +77,12 @@ const hallCards: HallCard[] = [
 					<div
 						class="relative overflow-hidden rounded-[30px] bg-[#DFD3C1] shadow-[0_10px_26px_rgba(0,0,0,0.12)] md:w-1/2"
 					>
-						<img
+						<NuxtImg
 							:src="card.image"
 							:alt="card.title"
 							loading="lazy"
-							decoding="async"
 							class="h-full w-full rounded-[30px] object-cover"
+							sizes="sm:100vw md:50vw lg:600px"
 						/>
 					</div>
 				</article>

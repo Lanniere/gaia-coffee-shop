@@ -3,7 +3,13 @@
 <template>
 	<section class="great-block flex justify-center-safe">
 		<div class="cropped">
-			<img src="~/assets/images/tarocard.png" alt="Таро-карта Gaia" />
+			<NuxtImg
+				src="/images/tarocard.png"
+				alt="Таро-карта Gaia"
+				preload
+				loading="eager"
+				class="tarocard-img"
+			/>
 		</div>
 		<div class="gradient" />
 		<div class="absolute top-[15%] text-center">
@@ -45,7 +51,8 @@
 	height: 100%;
 	overflow: hidden;
 }
-.cropped img {
+
+.cropped > img {
 	margin: -13% 0px 0px 0px;
 	transform: scale(1.35);
 }

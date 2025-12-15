@@ -36,11 +36,12 @@ function selectHall(hallId: string) {
 			>
 				<!-- Hall image -->
 				<div class="aspect-4/3 overflow-hidden rounded-xl">
-					<img
+					<NuxtImg
 						:src="hall.image"
 						:alt="hall.title"
 						class="size-full object-cover transition hover:scale-105"
 						loading="lazy"
+						sizes="sm:100vw md:50vw lg:400px"
 					/>
 				</div>
 

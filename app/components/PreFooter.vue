@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import coffeePng from "~/assets/images/coffee.png"
-
 interface Props {
 	showImage?: boolean
 }
@@ -44,12 +42,12 @@ const socialLinks = [
 					v-if="showImage"
 					class="absolute -top-24 left-8 z-10 w-[200px] md:-top-32 md:left-12 md:w-[280px] lg:w-[320px]"
 				>
-					<img
-						:src="coffeePng"
+					<NuxtImg
+						src="/images/coffee.png"
 						alt="Кофе и листья"
 						class="h-auto w-full object-contain drop-shadow-2xl"
 						loading="lazy"
-						decoding="async"
+						sizes="sm:200px md:280px lg:320px"
 					/>
 				</div>
 

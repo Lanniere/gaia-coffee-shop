@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import smallHallImg from "~/assets/images/hall/smallHall.png"
-import bigHallImg from "~/assets/images/hall/bigHall.png"
-
 interface HallInfo {
 	id: string
 	title: string
@@ -27,7 +24,7 @@ const halls: HallInfo[] = [
 	{
 		id: "small",
 		title: "МАЛЫЙ ЗАЛ «ЛУННЫЙ КРУГ»",
-		image: smallHallImg,
+		image: "/images/hall/smallHall.png",
 		capacity: 6,
 		priceWeekday: 700,
 		priceWeekend: 800,
@@ -36,7 +33,7 @@ const halls: HallInfo[] = [
 	{
 		id: "big",
 		title: "БОЛЬШОЙ ЗАЛ «ЗАЛ ЗВЁЗДНЫХ СОВЕТОВ»",
-		image: bigHallImg,
+		image: "/images/hall/bigHall.png",
 		capacity: 12,
 		priceWeekday: 900,
 		priceWeekend: 1000,
