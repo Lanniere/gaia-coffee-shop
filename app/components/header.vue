@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from "@nuxt/ui"
 
-const route = useRoute()
-
-const navigationItems = computed<NavigationMenuItem[]>(() => [
-	{ label: "О нас", to: "#about", active: route.path.startsWith("#about") },
-	{ label: "Меню", to: "#menu", active: route.path.startsWith("#menu") },
-	{ label: "О кофейне", to: "#about-coffee", active: route.path.startsWith("#about-coffee") },
-	{ label: "Отзывы", to: "#reviews", active: route.path.startsWith("#reviews") },
-	{ label: "Контакты", to: "#contacts", active: route.path.startsWith("#contacts") },
-])
+const navigationItems: NavigationMenuItem[] = [
+	{ label: "О нас", to: "/#about", active: false },
+	{ label: "Меню", to: "/#menu", active: false },
+	{ label: "О кофейне", to: "/#about-coffee", active: false },
+	{ label: "Отзывы", to: "/#reviews", active: false },
+	{ label: "Контакты", to: "/#contacts", active: false },
+]
 </script>
 
 <template>
@@ -34,10 +32,22 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
 				<div class="flex items-center gap-7">
 					<p>Ищите нас в Whatsapp и Telegram!</p>
 					<div class="flex items-center">
-						<UButton variant="link" class="text-base" aria-label="Открыть Telegram">
+						<UButton
+							variant="link"
+							to="https://t.me/+79825120011"
+							class="text-base"
+							target="_blank"
+							aria-label="Открыть Telegram"
+						>
 							<UIcon name="i-custom-tg" class="h-6 w-6" />
 						</UButton>
-						<UButton variant="link" class="text-base" aria-label="Открыть Whatsapp">
+						<UButton
+							variant="link"
+							to="https://wa.me/79825120011"
+							class="text-base"
+							target="_blank"
+							aria-label="Открыть Whatsapp"
+						>
 							<UIcon name="i-custom-watsap" class="h-6 w-6" />
 						</UButton>
 					</div>
@@ -54,21 +64,23 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
 				:ui="{ link: 'text-2xl text-[#F5EFEA] p-0 font-normal', list: 'gap-[108px]' }"
 			/>
 		</template> -->
-
-		<template #right>
-			<UButton
-				variant="ghost"
-				color="primary"
-				class="text-2xl text-[#F5EFEA] underline decoration-2 underline-offset-4"
-			>
-				Забронировать зал
-			</UButton>
-		</template>
 		<template #default>
 			<UNavigationMenu
 				:items="navigationItems"
-				:ui="{ link: 'text-2xl text-[#F5EFEA] font-normal', list: 'gap-[108px]' }"
+				:ui="{
+					link: 'text-2xl text-[#F5EFEA] hover:text-white font-normal px-4 py-2 rounded-full transition-colors hover:before:bg-[rgba(241,177,122,0.4)]',
+					list: 'gap-[108px]',
+				}"
 			/>
+		</template>
+		<template #right>
+			<UButton
+				variant="ghost"
+				class="cursor-pointer text-2xl text-[#F5EFEA] underline decoration-2 underline-offset-4 hover:text-[#f1b17a]"
+				to="booking"
+			>
+				Забронировать зал
+			</UButton>
 		</template>
 	</UHeader>
 </template>

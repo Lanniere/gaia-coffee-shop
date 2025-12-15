@@ -29,7 +29,7 @@ const benefits = [
 </script>
 
 <template>
-	<section class="why-section bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
+	<section id="about-coffee" class="why-section bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
 		<UContainer>
 			<h2
 				class="text-center font-(family-name:--font-amatic) text-4xl leading-tight font-bold sm:text-5xl lg:text-6xl"
@@ -39,13 +39,15 @@ const benefits = [
 		</UContainer>
 
 		<!-- Галерея фото: на всю ширину -->
-		<div class="mt-10 w-full overflow-visible px-0">
-			<div class="flex flex-nowrap items-start justify-center gap-5 sm:gap-6 lg:gap-8">
+		<div class="mt-10 w-full overflow-hidden px-0">
+			<div
+				class="flex flex-nowrap items-start justify-center gap-5 overflow-hidden sm:gap-6 lg:gap-8"
+			>
 				<div
 					v-for="(photo, index) in photos"
 					:key="index"
 					:class="[
-						'h-[573px] w-[430px] shrink-0 overflow-hidden rounded-[50px] shadow-sm',
+						'h-[573px] w-[430px] shrink-0 overflow-hidden rounded-[50px]',
 						index === 0 ? '-ml-10 sm:-ml-14 lg:-ml-16' : '',
 						index === photos.length - 1 ? '-mr-10 sm:-mr-14 lg:-mr-16' : '',
 					]"

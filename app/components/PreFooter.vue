@@ -25,8 +25,8 @@ const contactInfo: ContactInfo = {
 }
 
 const socialLinks = [
-	{ icon: "custom:tg", href: "https://t.me/gaia_coffee", label: "Telegram" },
-	{ icon: "custom:watsap", href: "https://wa.me/79825200011", label: "WhatsApp" },
+	{ icon: "custom:tg", href: "https://t.me/+79825120011", label: "Telegram" },
+	{ icon: "custom:watsap", href: "https://wa.me/79825120011", label: "WhatsApp" },
 ]
 </script>
 

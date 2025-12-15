@@ -28,7 +28,7 @@ function downloadMenu() {
 </script>
 
 <template>
-	<section class="menu-section relative bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
+	<section id="menu" class="menu-section relative bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
 		<!-- Заголовок -->
 		<h2
 			class="text-center font-(family-name:--font-amatic) text-4xl leading-tight font-bold sm:text-5xl lg:text-6xl"
@@ -94,7 +94,7 @@ function downloadMenu() {
 					<div class="mt-8 flex items-center justify-start gap-4 md:mt-6 md:gap-6">
 						<!-- Кнопка Скачать меню -->
 						<UButton
-							color="primary"
+							color="secondary"
 							size="lg"
 							class="rounded-full bg-[#7A8A68] px-6 py-3 text-lg font-medium text-white hover:bg-[#6A7A58] md:px-8 md:py-4 md:text-xl"
 							@click="downloadMenu"

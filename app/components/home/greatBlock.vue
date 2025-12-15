@@ -17,9 +17,14 @@
 				МАГИЧЕСКАЯ КОФЕЙНЯ GAIA – <br />⭑ ВОЛШЕБСТВО ВКУСА И ПРЕДСКАЗАНИЙ ⭑
 			</h1>
 			<p class="mt-8 text-4xl font-normal">Место, где уют сочетается с волшебством!</p>
-			<UButton class="mt-20 rounded-full bg-[#433320] px-25 py-5 text-2xl font-normal" size="xl"
-				>ЗАБРОНИРОВАТЬ ЗАЛ</UButton
+			<UButton
+				class="mt-20 rounded-full bg-[#433320] px-25 py-5 text-2xl font-normal"
+				size="xl"
+				variant="solid"
+				to="booking"
 			>
+				ЗАБРОНИРОВАТЬ ЗАЛ
+			</UButton>
 		</div>
 	</section>
 </template>
@@ -28,7 +33,8 @@
 .great-block {
 	width: 100%;
 	min-height: 625px;
-	height: 75vh;
+	max-height: 1128px;
+	height: 70vh;
 	background-image: linear-gradient(180deg, #a98152, #f5efea);
 	background-color: #f5efea;
 	position: relative;
@@ -53,6 +59,7 @@
 }
 
 .cropped > img {
+	min-width: 1400px;
 	margin: -13% 0px 0px 0px;
 	transform: scale(1.35);
 }

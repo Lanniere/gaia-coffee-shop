@@ -7,113 +7,113 @@ interface ReviewCard {
 	text: string
 	rating: number
 	imageAlt: string
+	imageSrc: string
 }
-
-const VISIBLE_COUNT = 5
-const CARD_WIDTH = 391
-const CARD_HEIGHT = 500
-const ACTIVE_WIDTH = 422
-const ACTIVE_HEIGHT = 542
-const GAP_PX = 24
-const OFFSET_START = CARD_WIDTH * 2 + GAP_PX * 2 + ACTIVE_WIDTH / 2
 
 const reviews: ReviewCard[] = [
 	{
 		id: "review-1",
-		name: "ЛЮБОВЬ ХЛЫБЕНРУЦКАЯ",
-		text: "Чистое, потрясающее место! Приятная атмосфера, дружелюбный персонал. Очень вкусные десерты и кофе. Рекомендую попробовать нежное кофе с песочной корицей.",
+		name: "Лариса Хаерзаманова",
+		text: "Восторг! Приятная атмосфера, великолепные ароматы, вкуснющие десерты и нежнейший кофе 😍 Рекомендую!",
 		rating: 5,
 		imageAlt: "Кофе с десертом",
+		imageSrc: "/images/reviews/review1.png",
 	},
 	{
 		id: "review-2",
-		name: "АНЯ МАКАРОВА",
-		text: "Место вдохновляет! Влюбилась с первого визита. Баланс вкуса и внимания к деталям. Если хотите впечатлений, это лучший уголок, чтобы почувствовать землю и её энергию.",
+		name: "K. V. S.",
+		text: "Приятная атмосфера. Вкусный кофе.",
 		rating: 5,
 		imageAlt: "Чашка кофе",
+		imageSrc: "/images/reviews/review2.png",
 	},
 	{
 		id: "review-3",
-		name: "ЛАРИСА ХАЕРЗАМАНОВА",
-		text: "Восторг! Приятная атмосфера, волшебные напитки, впечатляющая десертная витрина. Рекомендую!",
+		name: "Снежана Ольденбургская",
+		text: "Красивое место, интересная лавочка. Приятный запах масел. Эстетичный образ первого зала. Жаль девочки грустные. Изумительный кофе, вкусно получилось! Красиво проданное нежное кофе с пенкой и корицей!",
 		rating: 5,
 		imageAlt: "Десерты и напитки",
+		imageSrc: "/images/reviews/review3.png",
 	},
 	{
 		id: "review-4",
-		name: "ИНГА КЕНИГ",
-		text: "Люблю эту кофейню. Приятно наблюдать, как растёте. Здесь всегда душевно, вкусно и уютно. Команда искренне заботится, чтобы каждый гость почувствовал тепло и хороший кофе.",
+		name: "Аня Майорова",
+		text: "Место действительно волшебное. Атмосферная подача кофе Ведьмин котёл. В плане еды - никаких нареканий. Были проездом, за пару дней успели попробовать немного, но всё понравилось.",
 		rating: 5,
 		imageAlt: "Гости кофейни",
+		imageSrc: "/images/reviews/review4.png",
 	},
 	{
 		id: "review-5",
-		name: "АРТЁМ ВОЛОШИН",
-		text: "Давно приятно удивляюсь, каждое посещение — праздник вкуса и уюта. Приветливые бариста, отличный кофе и десерты. Спасибо команде за настроение.",
+		name: "Анастасия 🌸",
+		text: "Часто захожу в эту кофейню. Самый вкусный кофе, который я только пробывала, десерты замечательные, особенно меренговые рулеты! ❤️ Советую посетить это замечательное заведение!",
 		rating: 5,
 		imageAlt: "Полка с кофе",
+		imageSrc: "/images/reviews/review5.png",
 	},
 	{
 		id: "review-6",
-		name: "МИРА ПЕТРОВА",
-		text: "Идеально для спокойных встреч и творческих бесед. Прекрасный чай, кофе и десерты. Обязательно вернусь.",
+		name: "Инга Кениг",
+		text: "Люблю эту кофейню, полную волшебства. Прекрасные залы для аренды. Заниматься йогой или танцевать Каошики и танец Шивы, мастерить карту желаний или просто пить кофе в хорошей компании.",
 		rating: 5,
 		imageAlt: "Стол с напитками",
+		imageSrc: "/images/reviews/review6.png",
+	},
+	{
+		id: "review-7",
+		name: "Артём Волошин",
+		text: "Очень приятное заведение, вежливые бариста, вкусный кофе. Также приобрел автопарфюм ручной работы, запах у него просто чудесный! Все понравилось, рекомендую данное заведение к посещению.",
+		rating: 5,
+		imageAlt: "Стол с напитками",
+		imageSrc: "/images/reviews/review7.png",
+	},
+	{
+		id: "review-8",
+		name: "Somebody .",
+		text: "Одно из самых приятных кафе в Сургуте, атмосфера успокаивающая, баристы всегда приветливые, матча самая вкусная, десерты тоже класс.",
+		rating: 5,
+		imageAlt: "Стол с напитками",
+		imageSrc: "/images/reviews/review8.png",
+	},
+	{
+		id: "review-9",
+		name: "Виктория Сенникова",
+		text: "Была очень удивлена. Безумно вкусный кофе. Теперь, наверное, это место мой фаворит. Всегда была уверена, что кофе умеют делать только в одном месте в городе. Но теперь знаю, что и тут отменный кофе. Что немаловажно, очень приятное обслуживание, милые и внимательные девушки. Большое спасибо.",
+		rating: 5,
+		imageAlt: "Стол с напитками",
+		imageSrc: "/images/reviews/review9.png",
 	},
 ]
 
-const placeholderSrc = "https://via.placeholder.com/320x240/DFD3C1/2C2216?text=Photo"
-
 const currentIndex = ref(0)
-const direction = ref<"left" | "right">("right")
+
+const total = computed(() => reviews.length)
+const VISIBLE_LG = 5
+const CARD_WIDTH = 400
+const GAP_PX = 24
+const STEP_PX = CARD_WIDTH + GAP_PX
+
+const maxIndex = computed(() => Math.max(0, total.value - VISIBLE_LG))
+const halfWindow = Math.floor(VISIBLE_LG / 2)
 
 function goPrev() {
-	direction.value = "left"
-	currentIndex.value = currentIndex.value <= 0 ? reviews.length - 1 : currentIndex.value - 1
+	currentIndex.value = currentIndex.value <= 0 ? maxIndex.value : currentIndex.value - 1
 }
 
 function goNext() {
-	direction.value = "right"
-	currentIndex.value = currentIndex.value >= reviews.length - 1 ? 0 : currentIndex.value + 1
+	currentIndex.value = currentIndex.value >= maxIndex.value ? 0 : currentIndex.value + 1
 }
-
-const pagedReviews = computed(() => {
-	const result: ReviewCard[] = []
-	for (let i = 0; i < VISIBLE_COUNT; i++) {
-		const idx = (currentIndex.value + i) % reviews.length
-		const review = reviews[idx]
-		if (review) result.push(review)
-	}
-	return result
-})
-
-const dots = computed(() => Array.from({ length: reviews.length }, (_, idx) => idx))
 
 function goTo(index: number) {
-	const normalized = ((index % reviews.length) + reviews.length) % reviews.length
-	direction.value = normalized > currentIndex.value ? "right" : "left"
-	currentIndex.value = normalized
+	const start = Math.min(Math.max(index - halfWindow, 0), maxIndex.value)
+	currentIndex.value = start
 }
 
-const trackStyle = computed(() => ({
-	gap: `${GAP_PX}px`,
-	transform: `translateX(calc(50vw - ${OFFSET_START}px))`,
-}))
-
-function getCardStyle(localIndex: number) {
-	const isCenter = localIndex === 2
-	return {
-		width: `${isCenter ? ACTIVE_WIDTH : CARD_WIDTH}px`,
-		minWidth: `${isCenter ? ACTIVE_WIDTH : CARD_WIDTH}px`,
-		height: `${isCenter ? ACTIVE_HEIGHT : CARD_HEIGHT}px`,
-		borderRadius: `${isCenter ? 55 : 50}px`,
-		border: "1px solid #B4B199",
-	}
-}
+const dots = computed(() => Array.from({ length: total.value }, (_, i) => i))
 </script>
 
 <template>
-	<section class="overflow-x-clip bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
+	<section id="reviews" class="overflow-x-clip bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
 		<UContainer>
 			<header class="space-y-3 text-center">
 				<h2
@@ -124,76 +124,77 @@ function getCardStyle(localIndex: number) {
 			</header>
 		</UContainer>
 
-		<div class="relative mt-10 flex w-full items-end justify-center lg:mt-12">
-			<TransitionGroup
-				:name="direction === 'right' ? 'slide-right' : 'slide-left'"
-				tag="div"
-				class="flex items-end"
-				:style="trackStyle"
+		<!-- Классическая карусель: несколько отзывов в ряд, трек на всю ширину -->
+		<div class="relative mt-10 w-full overflow-hidden lg:mt-12">
+			<div
+				class="flex gap-6 px-7 transition-transform duration-500 ease-out"
+				:style="{ transform: `translateX(-${currentIndex * STEP_PX}px)` }"
 			>
 				<article
-					v-for="(card, idx) in pagedReviews"
+					v-for="card in reviews"
 					:key="card.id"
-					class="flex shrink-0 flex-col overflow-hidden bg-[#EFE5DA] shadow-[0_12px_28px_rgba(0,0,0,0.12)]"
-					:style="getCardStyle(idx)"
+					class="review-card flex shrink-0 flex-col overflow-hidden bg-[#EFE5DA] shadow-md"
 				>
-					<div class="relative h-48 w-full bg-[#DFD3C1]">
-						<img
-							:src="placeholderSrc"
+					<div class="h-60 w-full bg-[#DFD3C1]">
+						<NuxtImg
+							:src="card.imageSrc"
 							:alt="card.imageAlt"
-							class="h-full w-full object-cover"
+							class="h-full w-full object-cover object-center"
 							loading="lazy"
 							decoding="async"
 						/>
 					</div>
 
-					<div class="flex flex-1 flex-col justify-between px-5 pt-5 pb-6 text-[#4D3B2C]">
+					<div class="flex flex-1 flex-col justify-between px-6 pt-6 pb-6 text-[#4D3B2C]">
 						<div class="space-y-3">
 							<div class="flex items-center gap-1 text-lg text-[#DAA520]">
 								<span v-for="star in card.rating" :key="star">★</span>
 							</div>
-							<h3 class="text-lg font-semibold tracking-[0.02em] uppercase">
+							<h3 class="text-lg font-semibold tracking-[0.02em] uppercase md:text-xl">
 								{{ card.name }}
 							</h3>
-							<p class="text-sm leading-relaxed sm:text-base">
+							<p class="text-sm leading-relaxed sm:text-base md:text-lg">
 								{{ card.text }}
 							</p>
 						</div>
 					</div>
 				</article>
-			</TransitionGroup>
+			</div>
 		</div>
 
+		<!-- Навигация карусели -->
 		<UContainer>
 			<div class="mt-10 flex items-center justify-center gap-4 sm:gap-6">
 				<UButton
-					variant="ghost"
-					color="primary"
-					class="h-12 w-12 rounded-full border-0 bg-[#6F7957] text-white shadow-[0_6px_18px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:bg-[#5F6A4B]"
+					color="secondary"
+					class="rounded-full bg-[#6F7957] p-3 text-white transition hover:-translate-y-0.5 hover:bg-[#5F6A4B]"
+					size="xl"
+					icon="material-symbols:arrow-back-rounded"
+					variant="solid"
 					@click="goPrev"
 				>
-					<span class="text-xl leading-none">←</span>
 				</UButton>
 
 				<div class="flex items-center gap-3 sm:gap-4">
 					<button
-						v-for="dot in dots"
-						:key="dot"
+						v-for="index in dots"
+						:key="index"
 						class="h-3 w-3 rounded-full border border-[#B4B199] transition"
-						:class="dot === currentIndex ? 'border-[#6F7957] bg-[#6F7957]' : 'bg-transparent'"
+						:class="index === currentIndex ? 'border-[#6F7957] bg-[#6F7957]' : 'bg-transparent'"
 						aria-label="Перейти к слайду"
 						type="button"
-						@click="goTo(dot)"
+						@click="goTo(index)"
 					/>
 				</div>
 
 				<UButton
-					variant="ghost"
-					color="primary"
-					class="h-12 w-12 rounded-full border-0 bg-[#6F7957] text-white shadow-[0_6px_18px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:bg-[#5F6A4B]"
+					color="secondary"
+					class="rounded-full bg-[#6F7957] p-3 text-white transition hover:-translate-y-0.5 hover:bg-[#5F6A4B]"
+					icon="material-symbols:arrow-forward-rounded"
+					size="xl"
+					variant="solid"
 					@click="goNext"
 				>
-					<span class="text-xl leading-none">→</span>
 				</UButton>
 			</div>
 		</UContainer>
@@ -201,35 +202,13 @@ function getCardStyle(localIndex: number) {
 </template>
 
 <style scoped>
-.slide-right-enter-active,
-.slide-right-leave-active,
-.slide-left-enter-active,
-.slide-left-leave-active {
-	transition: all 0.4s ease-out;
-}
-
-.slide-right-enter-from {
-	opacity: 0;
-	transform: translateX(100px);
-}
-
-.slide-right-leave-to {
-	opacity: 0;
-	transform: translateX(-100px);
-}
-
-.slide-left-enter-from {
-	opacity: 0;
-	transform: translateX(-100px);
-}
-
-.slide-left-leave-to {
-	opacity: 0;
-	transform: translateX(100px);
-}
-
-.slide-right-move,
-.slide-left-move {
-	transition: transform 0.4s ease-out;
+.review-card {
+	width: 400px;
+	min-width: 400px;
+	height: 585px;
+	border-radius: 50px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #b4b199;
 }
 </style>

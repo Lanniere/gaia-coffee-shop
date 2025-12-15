@@ -2,6 +2,10 @@
 @import "@nuxt/ui";
 @import "./fonts";
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-family: var(--font-sans);
 }
@@ -9,8 +13,14 @@ body {
 :root {
 	--font-sans: "Advent Pro", "Roboto", ui-sans-serif, system-ui, sans-serif;
 	--font-amatic: "AmaticSC";
-	--ui-primary: #f1b17a;
-	--ui-primary-foreground: #1f1a17;
-	--ui-gray: #2b2623;
+	--ui-primary: #433320;
+	--ui-secondary: #677256;
 	--ui-container: 1150px;
+	--header-height: 150px;
+	/* --ui-bg-elevated: rgba(241, 177, 122, 0.2); */
+}
+
+section[id] {
+	scroll-margin-top: 50px;
+	/* var(--header-height); */
 }

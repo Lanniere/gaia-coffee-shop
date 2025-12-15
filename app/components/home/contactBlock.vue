@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-	<section class="contact-block">
+	<section id="contacts" class="contact-block">
 		<!-- Header with title -->
 		<div class="bg-[#677256] py-6 text-center">
 			<h2
