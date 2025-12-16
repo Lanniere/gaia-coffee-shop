@@ -43,7 +43,7 @@ const timeRangeText = computed(() => {
 
 <template>
 	<div>
-		<p class="mb-3 text-sm text-[#9A9590]">Выберите время*</p>
+		<p class="mb-3 text-lg text-[#9A9590]">Выберите время*</p>
 		<div class="rounded-xl border border-[#E0DCD4] bg-[#F5EFEA] p-4">
 			<div class="grid grid-cols-5 gap-2">
 				<button

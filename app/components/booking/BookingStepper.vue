@@ -18,7 +18,7 @@ defineProps<Props>()
 				<span v-else>1</span>
 			</div>
 			<span
-				class="text-sm font-medium"
+				class="text-sm text-[20px] font-medium"
 				:class="currentStep >= 1 ? 'text-[#2C2216]' : 'text-[#9A9590]'"
 			>
 				Выбор зала
@@ -38,7 +38,7 @@ defineProps<Props>()
 				<span v-else>2</span>
 			</div>
 			<span
-				class="text-sm font-medium"
+				class="text-sm text-[20px] font-medium"
 				:class="currentStep >= 2 ? 'text-[#2C2216]' : 'text-[#9A9590]'"
 			>
 				Заполнение анкеты
@@ -58,7 +58,7 @@ defineProps<Props>()
 				<span v-else>3</span>
 			</div>
 			<span
-				class="text-sm font-medium"
+				class="text-sm text-[20px] font-medium"
 				:class="currentStep >= 3 ? 'text-[#2C2216]' : 'text-[#9A9590]'"
 			>
 				Подтверждение брони

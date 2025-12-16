@@ -143,8 +143,8 @@ function scrollTo(index: number) {
 				:items="reviews"
 				:ui="{
 					viewport: 'px-6 pb-3',
-					item: 'flex justify-center basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5',
-					container: '',
+					item: 'flex justify-center basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 2xl:basis-1/4 2xl:basis-1/5',
+					container: 'items-stretch',
 				}"
 				loop
 				@select="handleSelect"
@@ -164,13 +164,19 @@ function scrollTo(index: number) {
 
 					<div class="flex flex-1 flex-col justify-between px-6 pt-6 pb-6 text-[#4D3B2C]">
 						<div class="space-y-3">
-							<div class="flex items-center gap-1 text-lg text-[#DAA520]">
-								<span v-for="star in item.rating" :key="star">★</span>
+							<div class="flex flex-row items-center justify-center gap-1">
+								<UIcon
+									v-for="(star, index) in item.rating"
+									:key="star"
+									name="i-heroicons-star-solid"
+									class="text-[#DAA520]"
+									:class="`size-${4 + 2 * Math.min(index, item.rating - 1 - index)}`"
+								/>
 							</div>
-							<h3 class="text-lg font-semibold tracking-[0.02em] uppercase md:text-xl">
+							<h3 class="text-center text-xl font-semibold tracking-[0.02em] uppercase md:text-xl">
 								{{ item.name }}
 							</h3>
-							<p class="text-sm leading-relaxed sm:text-base md:text-lg">
+							<p class="text-center text-sm leading-relaxed sm:text-base">
 								{{ item.text }}
 							</p>
 						</div>
@@ -217,7 +223,7 @@ function scrollTo(index: number) {
 
 <style scoped>
 .review-card {
-	height: 585px;
+	/* min-width: 400px; */
 	border-radius: 50px;
 	border-width: 1px;
 	border-style: solid;

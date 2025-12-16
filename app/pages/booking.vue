@@ -10,19 +10,19 @@ interface HallInfo {
 }
 
 interface BookingFormData {
-	selectedDate: Date | null
-	selectedTimeStart: number | null
-	selectedTimeEnd: number | null
-	fullName: string
-	email: string
-	phone: string
+	date: Date | null
+	start_time: number | null
+	end_time: number | null
+	customer_name: string
+	customer_email: string
+	customer_phone: string
 	comment: string
 	agreed: boolean
 }
 
 const halls: HallInfo[] = [
 	{
-		id: "small",
+		id: 1,
 		title: "МАЛЫЙ ЗАЛ «ЛУННЫЙ КРУГ»",
 		image: "/images/hall/smallHall.png",
 		capacity: 6,
@@ -31,7 +31,7 @@ const halls: HallInfo[] = [
 		description: "Идеально для трансформационных игр, психологов и девичников.",
 	},
 	{
-		id: "big",
+		id: 2,
 		title: "БОЛЬШОЙ ЗАЛ «ЗАЛ ЗВЁЗДНЫХ СОВЕТОВ»",
 		image: "/images/hall/bigHall.png",
 		capacity: 12,
@@ -55,10 +55,43 @@ function goBack() {
 	currentStep.value = 1
 }
 
-function submitForm(formData: BookingFormData) {
-	// TODO: отправка на сервер
-	console.log("Booking submitted:", { hall: selectedHall.value, ...formData })
-	currentStep.value = 3
+async function submitForm(formData: BookingFormData) {
+	if (
+		!formData.date ||
+		formData.start_time === null ||
+		formData.end_time === null ||
+		!selectedHall.value
+	) {
+		return
+	}
+
+	const hallId = selectedHall.value
+
+	const startDateTime = new Date(formData.date)
+	const offset = Math.abs(startDateTime.getTimezoneOffset() / 60)
+	startDateTime.setHours(formData.start_time + offset, 0, 0, 0)
+
+	const endDateTime = new Date(formData.date)
+	endDateTime.setHours(formData.end_time + offset, 0, 0, 0)
+
+	try {
+		await $fetch("http://dobrodomovmikhail.fvds.ru/api/bookings/", {
+			method: "POST",
+			body: {
+				hall_id: hallId,
+				start_time: startDateTime.toISOString(),
+				end_time: endDateTime.toISOString(),
+				customer_name: formData.customer_name,
+				customer_phone: formData.customer_phone,
+				customer_email: formData.customer_email,
+				comment: formData.comment || "",
+			},
+		})
+
+		currentStep.value = 3
+	} catch (error) {
+		console.error("Ошибка при отправке бронирования:", error)
+	}
 }
 
 function goHome() {
@@ -68,7 +101,7 @@ function goHome() {
 
 <template>
 	<main class="min-h-screen bg-[#F5EFEA]">
-		<UContainer class="py-12 md:py-16">
+		<UContainer class="py-8">
 			<!-- Title -->
 			<h1
 				class="mb-8 font-(family-name:--font-amatic) text-4xl font-bold text-[#2C2216] md:text-5xl lg:text-6xl"

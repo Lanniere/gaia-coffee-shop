@@ -5,17 +5,13 @@
 		<UContainer>
 			<div class="grid grid-cols-1 items-start gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
 				<div class="text-content">
-					<div class="mb-8 flex items-start gap-4 md:mb-12 lg:mb-16">
+					<div class="mb-8 flex flex-row gap-4 md:mb-12 lg:mb-16">
 						<h2
 							class="font-(family-name:--font-amatic) text-4xl leading-tight font-bold sm:text-5xl lg:text-[64px]"
 						>
 							КОФЕЙНЯ, ВДОХНОВЛЕННАЯ<br />ДРЕВНЕЙ БОГИНЕЙ ЗЕМЛИ
 						</h2>
-						<NuxtImg
-							src="/images/branch.svg"
-							alt=""
-							class="h-10 w-auto self-center sm:h-12 lg:h-14"
-						/>
+						<NuxtImg src="/images/branch.svg" alt="" class="h-full self-center" />
 					</div>
 
 					<div class="space-y-6 text-base leading-relaxed sm:text-lg lg:text-2xl">

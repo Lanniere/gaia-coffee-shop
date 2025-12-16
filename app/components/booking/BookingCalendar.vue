@@ -105,11 +105,18 @@ function isPastDate(day: { fullDate: Date }) {
 	today.setHours(0, 0, 0, 0)
 	return day.fullDate < today
 }
+onMounted(() => {
+	if (!props.modelValue) {
+		const today = new Date()
+		today.setHours(0, 0, 0, 0)
+		emit("update:modelValue", today)
+	}
+})
 </script>
 
 <template>
 	<div>
-		<p class="mb-3 text-sm text-[#9A9590]">Выберите дату*</p>
+		<p class="mb-3 text-lg text-[#9A9590]">Выберите дату*</p>
 		<div class="rounded-xl border border-[#E0DCD4] bg-[#F5EFEA] p-4">
 			<!-- Month navigation -->
 			<div class="mb-4 flex items-center justify-between">
@@ -150,7 +157,7 @@ function isPastDate(day: { fullDate: Date }) {
 					v-for="(day, index) in calendarDays"
 					:key="index"
 					type="button"
-					class="flex size-8 items-center justify-center rounded-full text-sm transition"
+					class="flex size-8 items-center-safe justify-center-safe justify-self-center rounded-full text-sm transition"
 					:class="{
 						'text-[#9A9590]/50': !day.currentMonth,
 						'text-[#2C2216]': day.currentMonth && !isSelectedDate(day) && !isPastDate(day),

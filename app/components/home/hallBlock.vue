@@ -75,9 +75,7 @@ const hallCards: HallCard[] = [
 						</UButton>
 					</div>
 
-					<div
-						class="relative overflow-hidden rounded-[30px] bg-[#DFD3C1] shadow-[0_10px_26px_rgba(0,0,0,0.12)] md:w-1/2"
-					>
+					<div class="relative overflow-hidden rounded-[30px] bg-[#DFD3C1] md:w-1/2">
 						<NuxtImg
 							:src="card.image"
 							:alt="card.title"
