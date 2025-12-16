@@ -28,7 +28,7 @@ function downloadMenu() {
 </script>
 
 <template>
-	<section id="menu" class="menu-section relative bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
+	<section id="menu" class="menu-section relative py-16 md:py-20 lg:py-24">
 		<!-- Заголовок -->
 		<h2
 			class="text-center font-(family-name:--font-amatic) text-4xl leading-tight font-bold sm:text-5xl lg:text-6xl"

@@ -27,7 +27,7 @@ const navigationItems: NavigationMenuItem[] = [
 					</span>
 				</div>
 
-				<Logo class="h-9 w-auto" />
+				<Logo class="h-9 w-auto" dark />
 
 				<div class="flex items-center gap-7">
 					<p>Ищите нас в Whatsapp и Telegram!</p>

@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-	<section id="about" class="about-section bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
+	<section id="about" class="about-section py-16 md:py-20 lg:py-24">
 		<UContainer>
 			<div class="grid grid-cols-1 items-start gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
 				<div class="text-content">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue"
+import { onMounted, ref } from "vue"
 
 interface ReviewCard {
 	id: string
@@ -13,48 +13,48 @@ interface ReviewCard {
 const reviews: ReviewCard[] = [
 	{
 		id: "review-1",
-		name: "Лариса Хаерзаманова",
-		text: "Восторг! Приятная атмосфера, великолепные ароматы, вкуснющие десерты и нежнейший кофе 😍 Рекомендую!",
+		name: "ЛЮБОВЬ ХЛЫБЕНРУЦКАЯ",
+		text: "Чистое, потрясающее место! Приятная атмосфера, дружелюбный персонал. Очень вкусные десерты и кофе. Рекомендую попробовать нежное кофе с песочной корицей.",
 		rating: 5,
 		imageAlt: "Кофе с десертом",
 		imageSrc: "/images/reviews/review1.png",
 	},
 	{
 		id: "review-2",
-		name: "K. V. S.",
-		text: "Приятная атмосфера. Вкусный кофе.",
+		name: "АНЯ МАКАРОВА",
+		text: "Место вдохновляет! Влюбилась с первого визита. Баланс вкуса и внимания к деталям. Если хотите впечатлений, это лучший уголок, чтобы почувствовать землю и её энергию.",
 		rating: 5,
 		imageAlt: "Чашка кофе",
 		imageSrc: "/images/reviews/review2.png",
 	},
 	{
 		id: "review-3",
-		name: "Снежана Ольденбургская",
-		text: "Красивое место, интересная лавочка. Приятный запах масел. Эстетичный образ первого зала. Жаль девочки грустные. Изумительный кофе, вкусно получилось! Красиво проданное нежное кофе с пенкой и корицей!",
+		name: "ЛАРИСА ХАЕРЗАМАНОВА",
+		text: "Восторг! Приятная атмосфера, волшебные напитки, впечатляющая десертная витрина. Рекомендую!",
 		rating: 5,
 		imageAlt: "Десерты и напитки",
 		imageSrc: "/images/reviews/review3.png",
 	},
 	{
 		id: "review-4",
-		name: "Аня Майорова",
-		text: "Место действительно волшебное. Атмосферная подача кофе Ведьмин котёл. В плане еды - никаких нареканий. Были проездом, за пару дней успели попробовать немного, но всё понравилось.",
+		name: "ИНГА КЕНИГ",
+		text: "Люблю эту кофейню. Приятно наблюдать, как растёте. Здесь всегда душевно, вкусно и уютно. Команда искренне заботится, чтобы каждый гость почувствовал тепло и хороший кофе.",
 		rating: 5,
 		imageAlt: "Гости кофейни",
 		imageSrc: "/images/reviews/review4.png",
 	},
 	{
 		id: "review-5",
-		name: "Анастасия 🌸",
-		text: "Часто захожу в эту кофейню. Самый вкусный кофе, который я только пробывала, десерты замечательные, особенно меренговые рулеты! ❤️ Советую посетить это замечательное заведение!",
+		name: "АРТЁМ ВОЛОШИН",
+		text: "Давно приятно удивляюсь, каждое посещение — праздник вкуса и уюта. Приветливые бариста, отличный кофе и десерты. Спасибо команде за настроение.",
 		rating: 5,
 		imageAlt: "Полка с кофе",
 		imageSrc: "/images/reviews/review5.png",
 	},
 	{
 		id: "review-6",
-		name: "Инга Кениг",
-		text: "Люблю эту кофейню, полную волшебства. Прекрасные залы для аренды. Заниматься йогой или танцевать Каошики и танец Шивы, мастерить карту желаний или просто пить кофе в хорошей компании.",
+		name: "МИРА ПЕТРОВА",
+		text: "Идеально для спокойных встреч и творческих бесед. Прекрасный чай, кофе и десерты. Обязательно вернусь.",
 		rating: 5,
 		imageAlt: "Стол с напитками",
 		imageSrc: "/images/reviews/review6.png",
@@ -78,42 +78,54 @@ const reviews: ReviewCard[] = [
 	{
 		id: "review-9",
 		name: "Виктория Сенникова",
-		text: "Была очень удивлена. Безумно вкусный кофе. Теперь, наверное, это место мой фаворит. Всегда была уверена, что кофе умеют делать только в одном месте в городе. Но теперь знаю, что и тут отменный кофе. Что немаловажно, очень приятное обслуживание, милые и внимательные девушки. Большое спасибо.",
+		text: "Каждый визит в GAIA — это маленький праздник. Вкусный кофе, уютная атмосфера и потрясающий сервис.",
 		rating: 5,
 		imageAlt: "Стол с напитками",
 		imageSrc: "/images/reviews/review9.png",
 	},
 ]
 
+const carouselRef = ref<{
+	emblaApi?: {
+		scrollPrev: () => void
+		scrollNext: () => void
+		scrollTo: (index: number) => void
+		scrollSnapList: () => number[]
+	}
+} | null>(null)
+
 const currentIndex = ref(0)
+const dotsCount = ref(reviews.length)
 
-const total = computed(() => reviews.length)
-const VISIBLE_LG = 5
-const CARD_WIDTH = 400
-const GAP_PX = 24
-const STEP_PX = CARD_WIDTH + GAP_PX
-
-const maxIndex = computed(() => Math.max(0, total.value - VISIBLE_LG))
-const halfWindow = Math.floor(VISIBLE_LG / 2)
-
-function goPrev() {
-	currentIndex.value = currentIndex.value <= 0 ? maxIndex.value : currentIndex.value - 1
+function updateSnapCount() {
+	const api = carouselRef.value?.emblaApi
+	if (!api) return
+	dotsCount.value = api.scrollSnapList().length
 }
 
-function goNext() {
-	currentIndex.value = currentIndex.value >= maxIndex.value ? 0 : currentIndex.value + 1
+onMounted(() => {
+	updateSnapCount()
+})
+
+function handleSelect(index: number) {
+	currentIndex.value = index
 }
 
-function goTo(index: number) {
-	const start = Math.min(Math.max(index - halfWindow, 0), maxIndex.value)
-	currentIndex.value = start
+function scrollPrev() {
+	carouselRef.value?.emblaApi?.scrollPrev()
 }
 
-const dots = computed(() => Array.from({ length: total.value }, (_, i) => i))
+function scrollNext() {
+	carouselRef.value?.emblaApi?.scrollNext()
+}
+
+function scrollTo(index: number) {
+	carouselRef.value?.emblaApi?.scrollTo(index)
+}
 </script>
 
 <template>
-	<section id="reviews" class="overflow-x-clip bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
+	<section id="reviews" class="overflow-x-clip py-16 md:py-20 lg:py-24">
 		<UContainer>
 			<header class="space-y-3 text-center">
 				<h2
@@ -124,42 +136,47 @@ const dots = computed(() => Array.from({ length: total.value }, (_, i) => i))
 			</header>
 		</UContainer>
 
-		<!-- Классическая карусель: несколько отзывов в ряд, трек на всю ширину -->
-		<div class="relative mt-10 w-full overflow-hidden lg:mt-12">
-			<div
-				class="flex gap-6 px-7 transition-transform duration-500 ease-out"
-				:style="{ transform: `translateX(-${currentIndex * STEP_PX}px)` }"
+		<div class="relative mt-10 w-full lg:mt-12">
+			<UCarousel
+				ref="carouselRef"
+				v-slot="{ item }"
+				:items="reviews"
+				:ui="{
+					viewport: 'px-6 pb-3',
+					item: 'flex justify-center basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5',
+					container: '',
+				}"
+				loop
+				@select="handleSelect"
 			>
 				<article
-					v-for="card in reviews"
-					:key="card.id"
-					class="review-card flex shrink-0 flex-col overflow-hidden bg-[#EFE5DA] shadow-md"
+					:key="item.id"
+					class="review-card flex flex-col overflow-hidden bg-[#EFE5DA] shadow-sm"
 				>
-					<div class="h-60 w-full bg-[#DFD3C1]">
+					<div class="h-60 bg-[#DFD3C1]">
 						<NuxtImg
-							:src="card.imageSrc"
-							:alt="card.imageAlt"
+							:src="item.imageSrc"
+							:alt="item.imageAlt"
 							class="h-full w-full object-cover object-center"
 							loading="lazy"
-							decoding="async"
 						/>
 					</div>
 
 					<div class="flex flex-1 flex-col justify-between px-6 pt-6 pb-6 text-[#4D3B2C]">
 						<div class="space-y-3">
 							<div class="flex items-center gap-1 text-lg text-[#DAA520]">
-								<span v-for="star in card.rating" :key="star">★</span>
+								<span v-for="star in item.rating" :key="star">★</span>
 							</div>
 							<h3 class="text-lg font-semibold tracking-[0.02em] uppercase md:text-xl">
-								{{ card.name }}
+								{{ item.name }}
 							</h3>
 							<p class="text-sm leading-relaxed sm:text-base md:text-lg">
-								{{ card.text }}
+								{{ item.text }}
 							</p>
 						</div>
 					</div>
 				</article>
-			</div>
+			</UCarousel>
 		</div>
 
 		<!-- Навигация карусели -->
@@ -171,19 +188,17 @@ const dots = computed(() => Array.from({ length: total.value }, (_, i) => i))
 					size="xl"
 					icon="material-symbols:arrow-back-rounded"
 					variant="solid"
-					@click="goPrev"
-				>
-				</UButton>
+					@click="scrollPrev"
+				/>
 
 				<div class="flex items-center gap-3 sm:gap-4">
 					<button
-						v-for="index in dots"
+						v-for="index in dotsCount"
 						:key="index"
-						class="h-3 w-3 rounded-full border border-[#B4B199] transition"
-						:class="index === currentIndex ? 'border-[#6F7957] bg-[#6F7957]' : 'bg-transparent'"
-						aria-label="Перейти к слайду"
 						type="button"
-						@click="goTo(index)"
+						class="h-3 w-3 rounded-full border border-[#B4B199] transition"
+						:class="index - 1 === currentIndex ? 'border-[#6F7957] bg-[#6F7957]' : 'bg-transparent'"
+						@click="scrollTo(index - 1)"
 					/>
 				</div>
 
@@ -193,9 +208,8 @@ const dots = computed(() => Array.from({ length: total.value }, (_, i) => i))
 					icon="material-symbols:arrow-forward-rounded"
 					size="xl"
 					variant="solid"
-					@click="goNext"
-				>
-				</UButton>
+					@click="scrollNext"
+				/>
 			</div>
 		</UContainer>
 	</section>
@@ -203,8 +217,6 @@ const dots = computed(() => Array.from({ length: total.value }, (_, i) => i))
 
 <style scoped>
 .review-card {
-	width: 400px;
-	min-width: 400px;
 	height: 585px;
 	border-radius: 50px;
 	border-width: 1px;

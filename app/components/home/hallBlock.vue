@@ -32,7 +32,7 @@ const hallCards: HallCard[] = [
 </script>
 
 <template>
-	<section class="bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
+	<section class="py-16 md:py-20 lg:py-24">
 		<UContainer class="space-y-12">
 			<div class="space-y-3 text-left">
 				<h2

@@ -1,11 +1,12 @@
 <script setup lang="ts">
-interface Props {
-	showImage?: boolean
-}
-
-withDefaults(defineProps<Props>(), {
-	showImage: true,
-})
+withDefaults(
+	defineProps<{
+		showImage?: boolean
+	}>(),
+	{
+		showImage: true,
+	},
+)
 
 interface ContactInfo {
 	schedule: string
@@ -31,71 +32,72 @@ const socialLinks = [
 </script>
 
 <template>
-	<div
-		class="relative bg-[#677256] pt-16 pb-8 text-[#F5EFEA] md:pt-20 md:pb-12"
-		:class="{ 'pt-8 md:pt-12': !showImage }"
-	>
-		<UContainer>
-			<div class="flex flex-col items-center gap-8 md:flex-row md:items-end md:justify-between">
-				<!-- Coffee image - positioned to overlap map -->
-				<div
-					v-if="showImage"
-					class="absolute -top-24 left-8 z-10 w-[200px] md:-top-32 md:left-12 md:w-[280px] lg:w-[320px]"
-				>
-					<NuxtImg
-						src="/images/coffee.png"
-						alt="Кофе и листья"
-						class="h-auto w-full object-contain drop-shadow-2xl"
-						loading="lazy"
-						sizes="sm:200px md:280px lg:320px"
-					/>
+	<div class="relative bg-[#677256] py-8 text-[#F5EFEA]" :class="{ 'pt-8 md:pt-12': !showImage }">
+		<UContainer class="flex w-full flex-row justify-between">
+			<div v-if="showImage" class="min-w-[500px]">
+				<NuxtImg
+					src="/images/coffee.png"
+					alt="Кофе и листья"
+					class="absolute -top-[60%] object-contain drop-shadow-2xl"
+					loading="lazy"
+					width="474px"
+					height="406px"
+				/>
+			</div>
+			<div class="flex w-full flex-col items-center justify-between gap-8 md:flex-col">
+				<div class="flex w-full flex-row justify-between">
+					<logo />
+					<div class="flex flex-row gap-15">
+						<div class="flex items-center justify-center gap-2 text-base md:justify-start">
+							<UIcon name="i-custom-brief" class="icon-white h-5 w-5" />
+							<span>{{ contactInfo.schedule }}</span>
+						</div>
+						<a
+							:href="`tel:${contactInfo.phone.replace(/[^+\d]/g, '')}`"
+							class="flex items-center justify-center gap-2 text-base transition hover:text-[#f1b17a] md:justify-start"
+						>
+							<UIcon name="i-custom-phone" class="icon-white h-5 w-5" />
+							<span>{{ contactInfo.phone }}</span>
+						</a>
+					</div>
 				</div>
 
-				<!-- Center content - Contact info -->
-				<div
-					class="flex flex-col gap-3 text-center md:mr-auto md:text-left"
-					:class="showImage ? 'md:ml-auto lg:mr-0 lg:ml-[340px]' : 'md:ml-0'"
-				>
-					<h3 class="font-(family-name:--font-amatic) text-5xl leading-none font-bold">GAIA</h3>
-					<div class="flex items-center justify-center gap-2 text-base md:justify-start">
-						<UIcon name="i-heroicons-clock" class="size-5" />
-						<span>{{ contactInfo.schedule }}</span>
-					</div>
-					<a
-						:href="`tel:${contactInfo.phone.replace(/[^+\d]/g, '')}`"
-						class="flex items-center justify-center gap-2 text-base transition hover:text-[#f1b17a] md:justify-start"
-					>
-						<UIcon name="i-heroicons-phone" class="size-5" />
-						<span>{{ contactInfo.phone }}</span>
-					</a>
-					<div class="mt-2 space-y-1 text-sm opacity-90">
+				<USeparator />
+
+				<div class="flex w-full flex-row justify-between">
+					<div class="mt-2 space-y-1 text-sm">
 						<p>{{ contactInfo.legalName }}</p>
 						<p>{{ contactInfo.inn }}</p>
 						<p class="max-w-md">{{ contactInfo.ogrnip }}</p>
 					</div>
-				</div>
 
-				<!-- Right - Links and socials -->
-				<div class="flex flex-col items-center gap-4 md:items-end">
-					<div class="flex flex-col gap-2 text-center text-sm md:text-right">
-						<a href="#" class="transition hover:text-[#f1b17a]">Договор-оферта</a>
-						<a href="#" class="transition hover:text-[#f1b17a]">Политика конфиденциальности</a>
-					</div>
-					<div class="flex gap-3">
-						<a
-							v-for="link in socialLinks"
-							:key="link.label"
-							:href="link.href"
-							target="_blank"
-							rel="noopener noreferrer"
-							:aria-label="link.label"
-							class="flex size-10 items-center justify-center rounded-full bg-[#F5EFEA] text-[#677256] transition hover:scale-110 hover:bg-[#f1b17a]"
-						>
-							<UIcon :name="link.icon" class="size-5" />
-						</a>
+					<div class="flex flex-row gap-4">
+						<div class="flex flex-col gap-2 text-left text-sm">
+							<a href="#" class="transition hover:text-[#f1b17a]">Договор-оферта</a>
+							<a href="#" class="transition hover:text-[#f1b17a]">Политика конфиденциальности</a>
+							<div class="flex gap-3 self-end-safe">
+								<a
+									v-for="link in socialLinks"
+									:key="link.label"
+									:href="link.href"
+									target="_blank"
+									rel="noopener noreferrer"
+									:aria-label="link.label"
+									class="flex items-center justify-center rounded-full text-[#677256] transition hover:bg-[#f1b17a]"
+								>
+									<UIcon :name="link.icon" size="25" class="icon-white" />
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</UContainer>
 	</div>
 </template>
+
+<style scoped>
+.icon-white {
+	filter: brightness(0) saturate(100%) invert(1);
+}
+</style>

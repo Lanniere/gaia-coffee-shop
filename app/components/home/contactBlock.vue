@@ -1,7 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue"
+
+const isMapInteractive = ref(false)
+
+function enableMapInteraction() {
+	isMapInteractive.value = true
+}
+</script>
 
 <template>
-	<section id="contacts" class="contact-block">
+	<section id="contacts" class="contact-block pt-16 md:pt-20 lg:pt-24">
 		<!-- Header with title -->
 		<div class="bg-[#677256] py-6 text-center">
 			<h2
@@ -17,10 +25,18 @@
 				src="https://yandex.ru/map-widget/v1/org/gaia_volshebnaya_kofeynya/152941702538/?ll=73.452627%2C61.250283&z=17"
 				allowfullscreen="true"
 				class="h-[400px] w-full md:h-[500px]"
+				:class="{ 'pointer-none': !isMapInteractive }"
 			></iframe>
+			<div
+				v-if="!isMapInteractive"
+				class="absolute inset-0 z-10 cursor-pointer"
+				@click="enableMapInteraction"
+			></div>
 		</div>
 
 		<!-- Pre-footer -->
 		<PreFooter />
 	</section>
 </template>
+
+<style scoped></style>

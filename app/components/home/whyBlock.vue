@@ -29,7 +29,7 @@ const benefits = [
 </script>
 
 <template>
-	<section id="about-coffee" class="why-section bg-[#F5EFEA] py-16 md:py-20 lg:py-24">
+	<section id="about-coffee" class="why-section py-16 md:py-20 lg:py-24">
 		<UContainer>
 			<h2
 				class="text-center font-(family-name:--font-amatic) text-4xl leading-tight font-bold sm:text-5xl lg:text-6xl"
